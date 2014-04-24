@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>Gamer Ward</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootflat.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <style>
+
+    </style>
+    <!--
+    Include the maps javascript with sensor=true because this code is using a
+    sensor (a GPS locator) to determine the user's location.
+    See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="/js/maps.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-custom" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav">
+            <li><a href="" class="nav-link current">Gamer Ward</a></li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="{{ login_url }}">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="panel" class="col-md-6 col-md-offset-3 well">
+      <form class="form-inline" role="form" onsubmit="codeAddress(); return false;">
+        <div class="input-group form-search">
+          <input type="text" class="form-control search-query" id="address" placeholder="Type your location e.g. Sec 22, Gurgaon">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary" data-type="last">Search</button>
+          </span>
+        </div>
+    </form>
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>
+{% endautoescape %}
