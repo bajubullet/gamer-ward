@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>Gamer Ward</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootflat.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl_2Z2WKJsq7eLXDZE4_LpEev0YajIdNI&sensor=true">
+    </script>
+    <script type="text/javascript" src="/js/jquery-2.1.0.min.js"></script>
+    {% block head %}
+    {% endblock head %}
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-custom" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav">
+            <li><a href="/" class="nav-link current">Gamer Ward</a></li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="nav-link" href="{{ auth_url }}">{{ auth_text }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="alert alert-info alert-dismissable col-md-6 col-md-offset-4" id="message-container">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true" onclick="closeMessage()">×</button>
+      <span id="message"></span>
+    </div>
+    {% block content %}
+    {% endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
+  </body>
+</html>
+{% endautoescape %}

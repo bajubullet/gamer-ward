@@ -12,9 +12,9 @@ function initialize () {
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-  google.maps.event.addListener(map, 'click', function(event) {
-    addMarker(event.latLng);
-  });
+  // google.maps.event.addListener(map, 'click', function(event) {
+  //   addMarker(event.latLng);
+  // });
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -51,3 +51,16 @@ function addMarker(location) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+
+// Show given message in blue bar.
+function showMessage(message) {
+  $('#message').text(message);
+  $('#message-container').fadeIn('slow');
+}
+
+
+// Closes the blue bar message.
+function closeMessage() {
+  $('#message-container').fadeOut();
+}
